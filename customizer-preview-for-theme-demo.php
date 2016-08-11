@@ -60,12 +60,45 @@
 				// Add settings
 				add_action( 'admin_init', array( $this, 'add_admin_settings' ) );
 
-				// Customizer Header
-				add_action( 'customizer_preview_header', array( $this, 'header_button' ) );
+				// Add CSS / JS
+				add_action( 'customize_controls_print_scripts', array( $this, 'customize_controls_script' ) );
+				add_action( 'customize_controls_print_styles', array( $this, 'customize_controls_style' ) );
+				add_action( 'customize_controls_print_footer_scripts', array( $this, 'customize_controls_templates' ) );
 
 				add_filter( 'plugin_action_links_' . CPTD_PLUGIN_BASENAME, array( $this, 'plugin_settings_link' ), 999 );
 
 				do_action( 'customizer_preview_for_theme_demo_init' );
+			}
+
+			public function customize_controls_templates() {
+				?>
+				<script type="text/html" id="tmpl-customizer-preview-for-demo-notice">
+					<div id="customizer-preview-notice" class="accordion-section customize-info">
+						<div class="accordion-section-title"><span class="preview-notice">You can't upload images and save settings.</span></div>
+					</div>
+				</script>
+				<script type="text/html" id="tmpl-customizer-preview-for-demo-button">
+					<a class="button button-primary" target="_blank" href="{{ data.button_link }}">{{ data.button_text }}</a>
+				</script>
+				<?php
+			}
+
+			public function customize_controls_style() {
+				if ( $this->is_customizer_user() ) {
+					wp_enqueue_style( 'customizer-preview-for-theme-demo', plugins_url( '/assets/css/customizer-preview.css', __FILE__ ), array(), '20160811' );
+				}
+			}
+
+			public function customize_controls_script() {
+
+				if ( $this->is_customizer_user() ) {
+					$options = get_option( 'customizer_preview_option' );
+					wp_enqueue_script( 'customizer-preview-for-theme-demo', plugins_url( '/assets/js/customizer-preview.js', __FILE__ ), array( 'jquery' ), '20160811', TRUE );
+					wp_localize_script( 'customizer-preview-for-theme-demo', 'CustomizerDemoPreview', array(
+						'button_text' => esc_attr( $options[ 'button_text' ] ),
+						'button_link' => esc_url( $options[ 'button_link' ] ),
+					) );
+				}
 			}
 
 			public function plugin_settings_link( $links ) {
@@ -78,12 +111,6 @@
 				}
 
 				return (array) $links;
-			}
-
-			// Show button on customizer window
-			public function header_button() {
-				$options = get_option( 'customizer_preview_option' );
-				printf( '<a class="button button-primary" href="%s">%s</a>', esc_url( $options[ 'button_link' ] ), esc_attr( $options[ 'button_text' ] ) );
 			}
 
 			// Add admin menu
@@ -206,7 +233,8 @@
 			// Accessing customizer
 			public function show_customizer() {
 
-				if ( is_admin() && 'customize.php' == basename( $_SERVER[ 'PHP_SELF' ] ) ) {
+				if ( is_admin() and 'customize.php' == basename( $_SERVER[ 'PHP_SELF' ] ) ) {
+
 					if ( ! is_user_logged_in() ) {
 						$this->customizer_user_auth();
 						wp_safe_redirect( esc_url( admin_url( 'customize.php' ) ) );
@@ -219,9 +247,8 @@
 			public function load_customizer() {
 				if ( 'customize.php' == basename( $_SERVER[ 'PHP_SELF' ] ) ) {
 					if ( $this->is_customizer_user() ) {
-
-						// If there are enough hooks for customizer.php then we really don't need to use this :D but....
-						include_once CPTD_PLUGIN_INCLUDE_DIR . 'customizer-preview.php';
+						//require_once CPTD_PLUGIN_INCLUDE_DIR . 'customizer-preview.php';
+						include ABSPATH . 'wp-admin/customize.php';
 						die;
 					}
 				}
