@@ -60,6 +60,9 @@
 				// Add settings
 				add_action( 'admin_init', array( $this, 'add_admin_settings' ) );
 
+				// Remove Ajax Save Action
+				add_action( 'admin_init', array( $this, 'remove_save_action' ) );
+
 				// Add CSS / JS
 				add_action( 'customize_controls_print_scripts', array( $this, 'customize_controls_script' ) );
 				add_action( 'customize_controls_print_styles', array( $this, 'customize_controls_style' ) );
@@ -240,6 +243,14 @@
 						wp_safe_redirect( esc_url( admin_url( 'customize.php' ) ) );
 						die();
 					}
+				}
+			}
+
+			// Remove ajax save action for security reason
+			public function remove_save_action() {
+				if ( $this->is_customizer_user() ) {
+					global $wp_customize;
+					remove_action( 'wp_ajax_customize_save', array( $wp_customize, 'save' ) );
 				}
 			}
 
