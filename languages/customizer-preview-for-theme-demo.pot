@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Customizer Preview for Theme Demo\n"
-"POT-Creation-Date: 2016-08-11 21:49+0600\n"
-"PO-Revision-Date: 2016-08-11 21:49+0600\n"
+"POT-Creation-Date: 2016-08-12 01:53+0600\n"
+"PO-Revision-Date: 2016-08-12 01:52+0600\n"
 "Last-Translator: ThemeHippo <themehippo@gmail.com>\n"
 "Language-Team: ThemeHippo <themehippo@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -20,73 +20,29 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: customizer-preview-for-theme-demo.php:76
+#: customizer-preview-for-theme-demo.php:110
 msgid "Settings"
 msgstr ""
 
-#: customizer-preview-for-theme-demo.php:94
+#: customizer-preview-for-theme-demo.php:122
 msgid "Customizer Preview Settings"
 msgstr ""
 
-#: customizer-preview-for-theme-demo.php:95
-#: customizer-preview-for-theme-demo.php:270
+#: customizer-preview-for-theme-demo.php:123
+#: customizer-preview-for-theme-demo.php:306
 msgid "Customizer Preview"
 msgstr ""
 
-#: customizer-preview-for-theme-demo.php:106 includes/customizer-preview.php:14
-#: preview.php:17
+#: customizer-preview-for-theme-demo.php:134
 msgid "Cheatin&#8217; uh?"
 msgstr ""
 
-#: customizer-preview-for-theme-demo.php:107
+#: customizer-preview-for-theme-demo.php:135
 msgid "You are not allowed to this section."
 msgstr ""
 
-#: customizer-preview-for-theme-demo.php:115
+#: customizer-preview-for-theme-demo.php:143
 msgid "Customizer Preview settings"
-msgstr ""
-
-#: includes/customizer-preview.php:15 preview.php:18
-msgid "You are not allowed to customize the appearance of this site."
-msgstr ""
-
-#: includes/customizer-preview.php:71 preview.php:89
-msgid "Loading&hellip;"
-msgstr ""
-
-#: includes/customizer-preview.php:109 preview.php:129
-msgid "Customize"
-msgstr ""
-
-#: includes/customizer-preview.php:110 preview.php:130
-msgid "Preview"
-msgstr ""
-
-#: includes/customizer-preview.php:113 preview.php:133
-msgid "Cancel"
-msgstr ""
-
-#: includes/customizer-preview.php:128 preview.php:148
-#, php-format
-msgid "You are customizing %s"
-msgstr ""
-
-#: includes/customizer-preview.php:130 preview.php:150
-msgid "Help"
-msgstr ""
-
-#: includes/customizer-preview.php:133 preview.php:153
-msgid ""
-"The Customizer allows you to preview changes to your site before publishing "
-"them. You can also navigate to different pages on your site to preview them."
-msgstr ""
-
-#: includes/customizer-preview.php:164 preview.php:184
-msgid "Collapse Sidebar"
-msgstr ""
-
-#: includes/customizer-preview.php:166 preview.php:186
-msgid "Collapse"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
