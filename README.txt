@@ -50,9 +50,9 @@ If you are unable to use any of the methods due to internet connectivity and fil
 
 == Frequently Asked Questions ==
 
-= How to enable checkout page redirect =
+= How to change or add button texts and link =
 
-- Goto **WooCommerce -> Settings -> Product tab -> Display** and Check  *Redirect to the checkout page after successful addition*.
+- Goto **Settings -> Customizer Preview** and add  *Button text* and *Button link* to show on customizer.
 
 == Changelog ==
 
