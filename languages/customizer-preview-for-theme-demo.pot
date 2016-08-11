@@ -1,0 +1,110 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: Customizer Preview for Theme Demo\n"
+"POT-Creation-Date: 2016-08-11 21:49+0600\n"
+"PO-Revision-Date: 2016-08-11 21:49+0600\n"
+"Last-Translator: ThemeHippo <themehippo@gmail.com>\n"
+"Language-Team: ThemeHippo <themehippo@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: customizer-preview-for-theme-demo.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: customizer-preview-for-theme-demo.php:76
+msgid "Settings"
+msgstr ""
+
+#: customizer-preview-for-theme-demo.php:94
+msgid "Customizer Preview Settings"
+msgstr ""
+
+#: customizer-preview-for-theme-demo.php:95
+#: customizer-preview-for-theme-demo.php:270
+msgid "Customizer Preview"
+msgstr ""
+
+#: customizer-preview-for-theme-demo.php:106 includes/customizer-preview.php:14
+#: preview.php:17
+msgid "Cheatin&#8217; uh?"
+msgstr ""
+
+#: customizer-preview-for-theme-demo.php:107
+msgid "You are not allowed to this section."
+msgstr ""
+
+#: customizer-preview-for-theme-demo.php:115
+msgid "Customizer Preview settings"
+msgstr ""
+
+#: includes/customizer-preview.php:15 preview.php:18
+msgid "You are not allowed to customize the appearance of this site."
+msgstr ""
+
+#: includes/customizer-preview.php:71 preview.php:89
+msgid "Loading&hellip;"
+msgstr ""
+
+#: includes/customizer-preview.php:109 preview.php:129
+msgid "Customize"
+msgstr ""
+
+#: includes/customizer-preview.php:110 preview.php:130
+msgid "Preview"
+msgstr ""
+
+#: includes/customizer-preview.php:113 preview.php:133
+msgid "Cancel"
+msgstr ""
+
+#: includes/customizer-preview.php:128 preview.php:148
+#, php-format
+msgid "You are customizing %s"
+msgstr ""
+
+#: includes/customizer-preview.php:130 preview.php:150
+msgid "Help"
+msgstr ""
+
+#: includes/customizer-preview.php:133 preview.php:153
+msgid ""
+"The Customizer allows you to preview changes to your site before publishing "
+"them. You can also navigate to different pages on your site to preview them."
+msgstr ""
+
+#: includes/customizer-preview.php:164 preview.php:184
+msgid "Collapse Sidebar"
+msgstr ""
+
+#: includes/customizer-preview.php:166 preview.php:186
+msgid "Collapse"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Customizer Preview for Theme Demo"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://wordpress.org/plugins/customizer-preview-for-theme-demo/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Customizer Preview to show activated theme demo"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Emran"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://emran.me/"
+msgstr ""
