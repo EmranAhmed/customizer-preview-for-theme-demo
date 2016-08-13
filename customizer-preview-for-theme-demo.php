@@ -140,7 +140,7 @@
 				?>
 				<div class="wrap">
 					<h2><?php echo esc_html( get_admin_page_title() ) ?></h2>
-					<p><?php esc_html_e( 'Customizer Preview settings', 'customizer-preview-for-theme-demo' ) ?></p>
+					<p><?php esc_html_e( 'Customizer Preview Button Settings', 'customizer-preview-for-theme-demo' ) ?></p>
 					<form method="post" action="options.php">
 						<?php
 							settings_fields( 'customizer_preview_settings_group' );
@@ -162,7 +162,7 @@
 
 				add_settings_section(
 					'customizer_preview_settings_section', // id
-					'Thumbnail Settings', // title
+					'Button Settings', // title
 					array( $this, 'section_info' ), // callback
 					CPTD_PLUGIN_DIRNAME // page
 				);
@@ -202,7 +202,7 @@
 
 				$options = get_option( 'customizer_preview_option' );
 				?>
-				<input type='text' name='customizer_preview_option[button_text]' value='<?php echo esc_html( $options[ 'button_text' ] ); ?>'>
+				<input type="text" class="regular-text" name="customizer_preview_option[button_text]" value="<?php echo esc_html( $options[ 'button_text' ] ); ?>">
 				<?php
 			}
 
@@ -211,7 +211,7 @@
 
 				$options = get_option( 'customizer_preview_option' );
 				?>
-				<input type='text' name='customizer_preview_option[button_link]' value='<?php echo esc_url( $options[ 'button_link' ] ); ?>'>
+				<input type="url" class="regular-text" name="customizer_preview_option[button_link]" value="<?php echo esc_url( $options[ 'button_link' ] ); ?>">
 				<?php
 			}
 

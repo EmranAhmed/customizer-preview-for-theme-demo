@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Customizer Preview for Theme Demo\n"
-"POT-Creation-Date: 2016-08-12 01:53+0600\n"
-"PO-Revision-Date: 2016-08-12 01:52+0600\n"
+"POT-Creation-Date: 2016-08-13 07:35+0600\n"
+"PO-Revision-Date: 2016-08-13 07:35+0600\n"
 "Last-Translator: ThemeHippo <themehippo@gmail.com>\n"
 "Language-Team: ThemeHippo <themehippo@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -42,7 +42,7 @@ msgid "You are not allowed to this section."
 msgstr ""
 
 #: customizer-preview-for-theme-demo.php:143
-msgid "Customizer Preview settings"
+msgid "Customizer Preview Button Settings"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
