@@ -47,6 +47,7 @@ If you are unable to use any of the methods due to internet connectivity and fil
 == Screenshots ==
 
 1. Settings
+2. Customizer Preview
 
 == Frequently Asked Questions ==
 
