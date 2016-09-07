@@ -3,7 +3,7 @@
 	 * Plugin Name:  Customizer Preview for Theme Demo
 	 * Plugin URI:   https://wordpress.org/plugins/customizer-preview-for-theme-demo/
 	 * Description:  Customizer Preview to show activated theme demo
-	 * Version:      1.0.0
+	 * Version:      1.0.1
 	 * Author:       Emran
 	 * Author URI:   https://emran.me/
 	 * License:      GPLv2.0+
@@ -77,11 +77,11 @@
 				?>
 				<script type="text/html" id="tmpl-customizer-preview-for-demo-notice">
 					<div id="customizer-preview-notice" class="accordion-section customize-info">
-						<div class="accordion-section-title"><span class="preview-notice">You can't upload images and save settings.</span></div>
+						<div class="accordion-section-title"><span class="preview-notice">{{ data.preview_notice || "You can't upload images and save settings." }}</span></div>
 					</div>
 				</script>
 				<script type="text/html" id="tmpl-customizer-preview-for-demo-button">
-					<a class="button button-primary" target="_blank" href="{{ data.button_link }}">{{ data.button_text }}</a>
+					<a class="button button-primary" target="{{ data.button_target }}" href="{{ data.button_link }}">{{ data.button_text }}</a>
 				</script>
 				<?php
 			}
@@ -98,8 +98,10 @@
 					$options = get_option( 'customizer_preview_option' );
 					wp_enqueue_script( 'customizer-preview-for-theme-demo', plugins_url( '/assets/js/customizer-preview.js', __FILE__ ), array( 'jquery' ), '20160811', TRUE );
 					wp_localize_script( 'customizer-preview-for-theme-demo', 'CustomizerDemoPreview', array(
-						'button_text' => esc_attr( $options[ 'button_text' ] ),
-						'button_link' => esc_url( $options[ 'button_link' ] ),
+						'button_text'    => esc_attr( $options[ 'button_text' ] ),
+						'button_link'    => esc_url( $options[ 'button_link' ] ),
+						'button_target'  => esc_attr( $options[ 'button_target' ] ),
+						'preview_notice' => esc_html( $options[ 'preview_notice' ] ),
 					) );
 				}
 			}
@@ -168,6 +170,14 @@
 				);
 
 				add_settings_field(
+					'preview_notice', // id
+					'Preview Notice', // title
+					array( $this, 'settings_preview_notice_field' ), // callback
+					CPTD_PLUGIN_DIRNAME, // page
+					'customizer_preview_settings_section' // section
+				);
+
+				add_settings_field(
 					'button_text', // id
 					'Button Text', // title
 					array( $this, 'settings_button_text_field' ), // callback
@@ -182,10 +192,19 @@
 					CPTD_PLUGIN_DIRNAME, // page
 					'customizer_preview_settings_section' // section
 				);
+
+				add_settings_field(
+					'button_target', // id
+					'Button Link Target', // title
+					array( $this, 'settings_button_target_field' ), // callback
+					CPTD_PLUGIN_DIRNAME, // page
+					'customizer_preview_settings_section' // section
+				);
 			}
 
 			// Settings sanitize before save
 			public function settings_sanitize( $input ) {
+
 				$sanitary_values = array();
 				if ( isset( $input[ 'button_link' ] ) ) {
 					$sanitary_values[ 'button_link' ] = esc_url( $input[ 'button_link' ] );
@@ -193,25 +212,62 @@
 				if ( isset( $input[ 'button_text' ] ) ) {
 					$sanitary_values[ 'button_text' ] = sanitize_text_field( $input[ 'button_text' ] );
 				}
+				if ( isset( $input[ 'button_target' ] ) ) {
+					$sanitary_values[ 'button_target' ] = sanitize_text_field( $input[ 'button_target' ] );
+				}
+				if ( isset( $input[ 'preview_notice' ] ) ) {
+					$sanitary_values[ 'preview_notice' ] = sanitize_text_field( $input[ 'preview_notice' ] );
+				}
 
 				return $sanitary_values;
 			}
 
 			// Button Field
+			public function settings_preview_notice_field() {
+
+				$options        = get_option( 'customizer_preview_option' );
+				$preview_notice = isset( $options[ 'preview_notice' ] ) ? $options[ 'preview_notice' ] : "You can't upload images and save settings.";
+				?>
+				<input type="text" class="regular-text" name="customizer_preview_option[preview_notice]" value="<?php echo esc_html( $preview_notice ); ?>">
+				<?php
+			}
+
+			// Button Field
 			public function settings_button_text_field() {
 
-				$options = get_option( 'customizer_preview_option' );
+				$options     = get_option( 'customizer_preview_option' );
+				$button_text = isset( $options[ 'button_text' ] ) ? $options[ 'button_text' ] : '';
 				?>
-				<input type="text" class="regular-text" name="customizer_preview_option[button_text]" value="<?php echo esc_html( $options[ 'button_text' ] ); ?>">
+				<input type="text" class="regular-text" name="customizer_preview_option[button_text]" value="<?php echo esc_html( $button_text ); ?>">
 				<?php
 			}
 
 			// Link Field
 			public function settings_button_link_field() {
 
-				$options = get_option( 'customizer_preview_option' );
+				$options     = get_option( 'customizer_preview_option' );
+				$button_link = isset( $options[ 'button_link' ] ) ? $options[ 'button_link' ] : '';
 				?>
-				<input type="url" class="regular-text" name="customizer_preview_option[button_link]" value="<?php echo esc_url( $options[ 'button_link' ] ); ?>">
+				<input type="url" class="regular-text" name="customizer_preview_option[button_link]" value="<?php echo esc_url( $button_link ); ?>">
+				<?php
+			}
+
+			// Link Target
+			public function settings_button_target_field() {
+
+				$options       = get_option( 'customizer_preview_option' );
+				$button_target = isset( $options[ 'button_target' ] ) ? $options[ 'button_target' ] : '';
+				?>
+
+				<select name="customizer_preview_option[button_target]">
+					<option <?php selected( '_self', $button_target ) ?> value="_self"><?php esc_html_e( 'Default (_self)', 'customizer-preview-for-theme-demo' ) ?></option>
+					<option <?php selected( '_blank', $button_target ) ?>
+						value="_blank"><?php esc_html_e( 'Opens link in a new window / tab (_blank)', 'customizer-preview-for-theme-demo' ) ?></option>
+					<option <?php selected( '_parent', $button_target ) ?>
+						value="_parent"><?php esc_html_e( 'Opens link in the parent frameset (_parent)', 'customizer-preview-for-theme-demo' ) ?></option>
+					<option <?php selected( '_top', $button_target ) ?>
+						value="_top"><?php esc_html_e( 'Opens link in the full body of the window (_top)', 'customizer-preview-for-theme-demo' ) ?></option>
+				</select>
 				<?php
 			}
 
@@ -281,7 +337,7 @@
 				$user    = get_user_by( 'login', trim( $username ) );
 				$user_id = $user->ID;
 				wp_set_current_user( $user_id );
-				wp_set_auth_cookie( $user_id );
+				wp_set_auth_cookie( $user_id, TRUE );
 				do_action( 'wp_login', trim( $username ), $user );
 			}
 

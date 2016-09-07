@@ -2,7 +2,7 @@
 Contributors: EmranAhmed
 Tags: customizer, preview, demo, theme, customizer-preview
 Requires at least: 4.3
-Tested up to: 4.5.3
+Tested up to: 4.6
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -53,10 +53,16 @@ If you are unable to use any of the methods due to internet connectivity and fil
 
 = How to change or add button texts and link =
 
-- Goto **Settings -> Customizer Preview** and add  *Button text* and *Button link* to show on customizer.
+- Goto **Settings -> Customizer Preview** and Add  *Button text*, *Button link*, *Button target* to show on customizer.
 
 == Changelog ==
 
+= 1.0.1 =
+
+- User Notice Added
+- Button Target field added
+- User login remember
+
 = 1.0.0 =
 
-Initial release
+- Initial release
