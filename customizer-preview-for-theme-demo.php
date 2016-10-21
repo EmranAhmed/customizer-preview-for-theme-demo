@@ -3,7 +3,7 @@
 	 * Plugin Name:  Customizer Preview for Theme Demo
 	 * Plugin URI:   https://wordpress.org/plugins/customizer-preview-for-theme-demo/
 	 * Description:  Customizer Preview to show activated theme demo
-	 * Version:      1.0.1
+	 * Version:      1.0.2
 	 * Author:       Emran
 	 * Author URI:   https://emran.me/
 	 * License:      GPLv2.0+
@@ -45,8 +45,8 @@
 				// Auth and Show Customizer
 				add_action( 'plugins_loaded', array( $this, 'show_customizer' ), 1 );
 
-				// Load our preview
-				add_action( 'admin_init', array( $this, 'load_customizer' ) );
+				// Load our custom preview
+				// add_action( 'admin_init', array( $this, 'load_customizer' ) );
 
 				// Init languages
 				add_action( 'init', array( $this, 'language' ) );
@@ -307,6 +307,14 @@
 				if ( $this->is_customizer_user() ) {
 					global $wp_customize;
 					remove_action( 'wp_ajax_customize_save', array( $wp_customize, 'save' ) );
+
+					// To remove some custom action like reset
+					// ========================================================
+					// add_action('customizer_preview_remove_action', function(){
+					// $fs = Flatsome_Customizer_Reset::get_instance();
+					// remove_action( 'wp_ajax_customizer_reset', array( $fs, 'ajax_customizer_reset' ) );
+					// });
+					do_action( 'customizer_preview_remove_action' );
 				}
 			}
 
@@ -314,7 +322,7 @@
 			public function load_customizer() {
 				if ( 'customize.php' == basename( $_SERVER[ 'PHP_SELF' ] ) ) {
 					if ( $this->is_customizer_user() ) {
-						//require_once CPTD_PLUGIN_INCLUDE_DIR . 'customizer-preview.php';
+						////// require_once CPTD_PLUGIN_INCLUDE_DIR . 'customizer-preview.php';
 						include ABSPATH . 'wp-admin/customize.php';
 						die;
 					}
@@ -359,12 +367,19 @@
 
 			public function register_activation() {
 				if ( ! get_role( "theme-customizer-preview" ) ) {
-					add_role( "theme-customizer-preview", esc_html__( "Customizer Preview", 'customizer-preview-for-theme-demo' ), array(
+
+					// Customizer Preview user capabilities
+					$user_capabilities = apply_filters( 'customizer_preview_user_capabilities', array(
 						'read'               => TRUE,
 						'edit_posts'         => FALSE,
 						'delete_posts'       => FALSE,
+						'edit_pages'         => FALSE,
 						'edit_theme_options' => TRUE,
+						//'manage_options'     => TRUE, // Some themes like FlatSome adds "customize.php" into their admin menu
+						'customize'          => TRUE,
 					) );
+
+					add_role( "theme-customizer-preview", esc_html__( "Customizer Preview", 'customizer-preview-for-theme-demo' ), $user_capabilities );
 				}
 
 				$this->create_customizer_user();

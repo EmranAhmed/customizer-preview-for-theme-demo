@@ -57,6 +57,10 @@ If you are unable to use any of the methods due to internet connectivity and fil
 
 == Changelog ==
 
+= 1.0.2 =
+
+- Filter `customizer_preview_user_capabilities` added to extend preview user capability.
+
 = 1.0.1 =
 
 - User Notice Added
