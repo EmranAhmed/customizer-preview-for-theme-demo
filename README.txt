@@ -1,8 +1,8 @@
 === Customizer Preview for Theme Demo ===
 Contributors: EmranAhmed
-Tags: customizer, preview, demo, theme, customizer-preview
-Requires at least: 4.3
-Tested up to: 4.6
+Tags: customizer, preview, demo, theme, customizer-preview, theme-customizer-preview, theme, preview, customizer-demo, demo-preview
+Requires at least: 4.5
+Tested up to: 4.7
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -56,6 +56,10 @@ If you are unable to use any of the methods due to internet connectivity and fil
 - Goto **Settings -> Customizer Preview** and Add  *Button text*, *Button link*, *Button target* to show on customizer.
 
 == Changelog ==
+
+= 1.0.3 =
+
+- Fixed customizer load issue for woocommerce
 
 = 1.0.2 =
 

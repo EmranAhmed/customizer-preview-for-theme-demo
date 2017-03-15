@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Customizer Preview for Theme Demo\n"
-"POT-Creation-Date: 2016-08-13 07:35+0600\n"
-"PO-Revision-Date: 2016-08-13 07:35+0600\n"
+"POT-Creation-Date: 2017-03-15 13:39+0600\n"
+"PO-Revision-Date: 2017-03-15 13:39+0600\n"
 "Last-Translator: ThemeHippo <themehippo@gmail.com>\n"
 "Language-Team: ThemeHippo <themehippo@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -20,29 +20,45 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: customizer-preview-for-theme-demo.php:110
+#: customizer-preview-for-theme-demo.php:118
 msgid "Settings"
 msgstr ""
 
-#: customizer-preview-for-theme-demo.php:122
+#: customizer-preview-for-theme-demo.php:130
 msgid "Customizer Preview Settings"
 msgstr ""
 
-#: customizer-preview-for-theme-demo.php:123
-#: customizer-preview-for-theme-demo.php:306
+#: customizer-preview-for-theme-demo.php:131
+#: customizer-preview-for-theme-demo.php:398
 msgid "Customizer Preview"
 msgstr ""
 
-#: customizer-preview-for-theme-demo.php:134
+#: customizer-preview-for-theme-demo.php:142
 msgid "Cheatin&#8217; uh?"
 msgstr ""
 
-#: customizer-preview-for-theme-demo.php:135
+#: customizer-preview-for-theme-demo.php:143
 msgid "You are not allowed to this section."
 msgstr ""
 
-#: customizer-preview-for-theme-demo.php:143
+#: customizer-preview-for-theme-demo.php:151
 msgid "Customizer Preview Button Settings"
+msgstr ""
+
+#: customizer-preview-for-theme-demo.php:269
+msgid "Default (_self)"
+msgstr ""
+
+#: customizer-preview-for-theme-demo.php:271
+msgid "Opens link in a new window / tab (_blank)"
+msgstr ""
+
+#: customizer-preview-for-theme-demo.php:273
+msgid "Opens link in the parent frameset (_parent)"
+msgstr ""
+
+#: customizer-preview-for-theme-demo.php:275
+msgid "Opens link in the full body of the window (_top)"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
@@ -58,9 +74,9 @@ msgid "Customizer Preview to show activated theme demo"
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "Emran"
+msgid "Emran Ahmed"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "https://emran.me/"
+msgid "https://themehippo.com/"
 msgstr ""
