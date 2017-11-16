@@ -57,6 +57,10 @@ If you are unable to use any of the methods due to internet connectivity and fil
 
 == Changelog ==
 
+= 1.0.4 =
+
+- Fix button for wp 4.9
+
 = 1.0.3 =
 
 - Fixed customizer load issue for woocommerce
